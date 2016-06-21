@@ -1,10 +1,14 @@
-var React = require('react');
+import * as React from 'react';
 
-var App = React.createClass({
+class Home extends React.Component {
 
-  render: function () {
-    return <div className='app-div'>Customise me</div>;
+  render() {
+    return (
+			<div className="app-div">
+        Hello World
+			</div>
+    );
   }
-});
+}
 
-module.exports = App;
+export default Home;
