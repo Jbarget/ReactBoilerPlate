@@ -1,18 +1,21 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080/',
     'webpack/hot/dev-server',
-    "./src/index.js"
+    './src/index.js'
   ],
   output: {
     filename: 'bundle.js',
     path: '/',
   },
+  resolve: {
+    extensions: ['', '.jsx', '.scss', '.js', '.json']
+  },
   module: {
     preLoaders: [
-      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+      {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
     ],
     loaders: [
       {
@@ -20,7 +23,10 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot','babel']
       },
-      { test: /\.css$/, loader: 'style!css'}
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+      }
     ]
   },
   eslint: {
