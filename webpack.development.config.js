@@ -32,6 +32,11 @@ module.exports = {
   eslint: {
     configFile: './.eslintrc'
   },
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   debug: true,
   devtool: 'source-map',
   devServer: { hot: true },
